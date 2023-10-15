@@ -1,0 +1,29 @@
+.score-display{
+  margin: 0;
+
+  &__text {
+      color: #044858;
+      text-transform: uppercase;
+  }
+  
+  &__number {
+      color: #3a6570;
+      &.animate {
+          color: rgb(137, 46, 255)(55, 0, 255); 
+      }
+  }
+}
+
+.score-display__wrapper {
+  font-size: 5rem;
+  background-color: #f3f2f2;
+  margin: 0%;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 715px) {
+  .score-display__wrapper {
+      font-size: 4rem;
+      padding-bottom: 30px; 
+  }
+}

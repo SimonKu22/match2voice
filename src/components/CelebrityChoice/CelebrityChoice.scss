@@ -1,0 +1,50 @@
+
+.celebrity-choice {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0 20px; 
+
+
+    &__image {
+        width: 150px; 
+        height: 150px;
+        border-radius: 50%; 
+        object-fit: cover;
+        object-position: center;  
+        margin-top: 100px; 
+        cursor: pointer; 
+        transition: transform 0.3s;
+        white-space:unset;
+  
+      &:hover {
+        transform: scale(1.35); 
+      }
+    }
+
+    &__name {
+      font-size: 1.6rem; 
+      text-align: center;
+      font-family: 'rellita-display';
+      color: #263a92; 
+    }
+  
+    &--correct {
+      border: 3px solid green; 
+    }
+
+    // Media Query for Mobile
+    @media (max-width: 715px) {
+        margin: 0 10px; 
+
+        &__image {
+            width: 80px; 
+            height: 80px;
+            margin-top: 40px; 
+        }
+
+        &__name {
+            font-size: 0.9rem; 
+        }
+    }
+}
