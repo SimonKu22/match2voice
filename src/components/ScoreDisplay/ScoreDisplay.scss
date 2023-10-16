@@ -1,16 +1,16 @@
-.score-display{
+.score-display {
   margin: 0;
 
   &__text {
-      color: #044858;
-      text-transform: uppercase;
+    color: #044858;
+    text-transform: uppercase;
   }
-  
+
   &__number {
-      color: #3a6570;
-      &.animate {
-          color: rgb(137, 46, 255)(55, 0, 255); 
-      }
+    color: #3a6570;
+    &.animate {
+      color: rgb(137, 46, 255) (55, 0, 255);
+    }
   }
 }
 
@@ -23,7 +23,7 @@
 
 @media (max-width: 715px) {
   .score-display__wrapper {
-      font-size: 4rem;
-      padding-bottom: 30px; 
+    font-size: 4rem;
+    padding-bottom: 30px;
   }
 }

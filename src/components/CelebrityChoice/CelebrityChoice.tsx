@@ -1,5 +1,5 @@
 import React from "react";
-import "./CelebrityChoice.scss"; 
+import "./CelebrityChoice.scss";
 
 interface Celebrity {
   id: number;
@@ -28,7 +28,9 @@ const CelebrityChoice: React.FC<Props> = ({
   return (
     <div
       className={`celebrity-choice ${
-        isGameOver && celebrity.id === correctChoiceId ? "celebrity-choice--correct" : ""
+        isGameOver && celebrity.id === correctChoiceId
+          ? "celebrity-choice--correct"
+          : ""
       }`}
     >
       <img

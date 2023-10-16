@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import "./PlayAgain.scss"
+import React, { useState } from "react";
+import "./PlayAgain.scss";
 
 interface Props {
   onRestart: () => void;
@@ -12,7 +12,7 @@ const PlayAgain: React.FC<Props> = ({ onRestart, score }) => {
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
-  }
+  };
 
   const saveScore = async () => {
     if (!name.trim()) {
@@ -20,15 +20,15 @@ const PlayAgain: React.FC<Props> = ({ onRestart, score }) => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:8080/savescore', {
-        method: 'POST',
+      const response = await fetch("http://localhost:8080/savescore", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name,
-          score
-        })
+          score,
+        }),
       });
 
       if (response.ok) {
@@ -39,29 +39,39 @@ const PlayAgain: React.FC<Props> = ({ onRestart, score }) => {
     } catch (error) {
       console.error("There was an error saving the score:", error);
     }
-  }
+  };
 
   return (
     <div className="play-again">
       <p className="play-again__score-text">Your Score: {score}</p>
-      
+
       {scoreSaved ? (
         <p className="play-again__saved-text">Score Saved!</p>
       ) : (
-        <div className="play-again__input-wrapper">
-          <input 
-            type="text"
-            className="play-again__input"
-            placeholder="Enter your name" 
-            value={name} 
-            onChange={handleNameChange}
-          />
-          <button className="play-again__save-button" onClick={saveScore}>Save Score</button>
-        </div>
+        <>
+          {score > 0 ? (
+            <div className="play-again__input-wrapper">
+              <input
+                type="text"
+                className="play-again__input"
+                placeholder="Enter your name"
+                value={name}
+                onChange={handleNameChange}
+              />
+              <button className="play-again__save-button" onClick={saveScore}>
+                Save Score
+              </button>
+            </div>
+          ) : (
+            <p>Your score is too low to be saved!</p>
+          )}
+        </>
       )}
-      <button className="play-again__restart-button" onClick={onRestart}>Play Again</button>
+      <button className="play-again__restart-button" onClick={onRestart}>
+        Play Again
+      </button>
     </div>
   );
-}
+};
 
 export default PlayAgain;

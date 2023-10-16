@@ -7,7 +7,12 @@ interface Props {
 const AudioPlayer: React.FC<Props> = ({ audioClip }) => {
   return (
     <div className="audio-player">
-      {audioClip && <audio controls src={`http://localhost:8080/audio_files/${audioClip}`}></audio>}
+      {audioClip && (
+        <audio
+          controls
+          src={`http://localhost:8080/audio_files/${audioClip}`}
+        ></audio>
+      )}
     </div>
   );
 };
