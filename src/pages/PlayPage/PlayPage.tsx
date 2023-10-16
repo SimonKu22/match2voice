@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import ScoreDisplay from '../../components/ScoreDisplay/ScoreDisplay';
-import AudioPlayer from '../../components/AudioPlayer/AudioPlayer';
-import CelebrityChoice from '../../components/CelebrityChoice/CelebrityChoice';
-import PlayAgain from '../../components/PlayAgain/PlayAgain';
-import './PlayPage.scss';
+import React, { useState, useEffect } from "react";
+import ScoreDisplay from "../../components/ScoreDisplay/ScoreDisplay";
+import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
+import CelebrityChoice from "../../components/CelebrityChoice/CelebrityChoice";
+import PlayAgain from "../../components/PlayAgain/PlayAgain";
+import "./PlayPage.scss";
 
 interface Celebrity {
   id: number;
@@ -20,13 +20,13 @@ const PlayPage: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/voices/random');
+      const response = await fetch("http://localhost:8080/voices/random");
       const data = await response.json();
       setAudioClip(data.audio);
       setCelebrities(data.celebrities);
       setCorrectChoiceId(data.correctChoiceId);
     } catch (error) {
-      console.error('Error fetching voice data:', error);
+      console.error("Error fetching voice data:", error);
     }
   };
 
@@ -47,13 +47,13 @@ const PlayPage: React.FC = () => {
     setIsGameOver(false);
     setScore(0);
     try {
-      const response = await fetch('http://localhost:8080/voices/random');
+      const response = await fetch("http://localhost:8080/voices/random");
       const data = await response.json();
       setAudioClip(data.audio);
       setCelebrities(data.celebrities);
       setCorrectChoiceId(data.correctChoiceId);
     } catch (error) {
-      console.error('Error fetching voice data on restart:', error);
+      console.error("Error fetching voice data on restart:", error);
     }
   };
 
@@ -62,8 +62,8 @@ const PlayPage: React.FC = () => {
       <ScoreDisplay score={score} />
       <AudioPlayer audioClip={audioClip} />
       <div className="celebrities-container">
-        {celebrities.map(celebrity => (
-          <CelebrityChoice 
+        {celebrities.map((celebrity) => (
+          <CelebrityChoice
             key={celebrity.id}
             celebrity={celebrity}
             onChoice={handleCelebrityChoice}
@@ -75,6 +75,6 @@ const PlayPage: React.FC = () => {
       {isGameOver && <PlayAgain onRestart={restartGame} score={score} />}
     </div>
   );
-}
+};
 
 export default PlayPage;

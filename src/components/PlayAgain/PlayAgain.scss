@@ -1,50 +1,78 @@
 .play-again {
-    &__score-text {
-      color: #263a92;
-      font-size: 1.5rem;
-    }
-  
-    &__saved-text {
-      color: #263a92;
-      margin-bottom: 1rem;
-    }
-  
-    &__input-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-  
-    &__input {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 15px;
-      background-color: #868686a4;
-      color: #000000;
-      outline: none;
-  
-      &::placeholder {
-        color: #000000;
-      }
-    }
-  
-    &__save-button, &__restart-button {
-      background-color: #263a92;
-      color: white;
-      padding: 0.5rem 1.5rem;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  
-      &:hover {
-        background-color: darken(#263a92, 10%);
-      }
-    }
+  &__score-text {
+    color: #263a92;
+    font-size: 1.5rem;
+  }
 
-    &__restart-button{
-        margin-top: 20px;
+  &__saved-text {
+    color: #263a92;
+    margin-bottom: 1rem;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__input {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 15px;
+    background-color: #868686a4;
+    color: #000000;
+    outline: none;
+
+    &::placeholder {
+      color: #000000;
     }
   }
-  
+
+  &__save-button,
+  &__restart-button {
+    background-color: #263a92;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken(#263a92, 10%);
+    }
+  }
+
+  &__restart-button {
+    margin-top: 20px;
+  }
+
+  // Media query for mobile devices
+  @media (max-width: 715px) {
+    &__score-text {
+      font-size: 1.2rem;
+    }
+
+    &__saved-text {
+      margin-bottom: 0.7rem;
+    }
+
+    &__input-wrapper {
+      gap: 0.7rem;
+    }
+
+    &__input {
+      padding: 0.4rem 0.8rem;
+    }
+
+    &__save-button,
+    &__restart-button {
+      padding: 0.4rem 1.2rem;
+    }
+
+    &__restart-button {
+      margin-top: 15px;
+    }
+  }
+}

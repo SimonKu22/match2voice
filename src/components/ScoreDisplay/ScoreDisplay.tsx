@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import './ScoreDisplay.scss';
+import React, { useEffect, useState } from "react";
+import "./ScoreDisplay.scss";
 
 interface Props {
   score: number;
@@ -17,11 +17,13 @@ const ScoreDisplay: React.FC<Props> = ({ score }) => {
 
   return (
     <div className="score-display__wrapper">
-      <p className='score-display'>
-        <span className={`score-display__number ${animate ? 'animate' : ''}`}>{score}</span>
+      <p className="score-display">
+        <span className={`score-display__number ${animate ? "animate" : ""}`}>
+          {score}
+        </span>
       </p>
     </div>
   );
-}
+};
 
 export default ScoreDisplay;

@@ -1,56 +1,56 @@
-@use '../../styles/fonts' as*;
+@use "../../styles/fonts" as *;
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f3f2f2;
+  color: #2c5b97;
+
+  &__title {
+    margin: 0;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: "rellita-display";
+  }
+
+  &__links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #f3f2f2;
-    color: #2c5b97;
-  
-    &__title {
-      margin: 0; 
-      font-size: 3.5rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      font-family: 'rellita-display'; 
-    }
-  
-    &__links {
-      display: flex;
-      gap: 20px; 
-      font-family: 'rellita-display';
-  
-      h4 {
-        margin: 0; 
-        font-size: 1.5rem;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); 
-  
-        a {
-          text-decoration: none;
-          color: #5268e4;
-          transition: color 0.3s;
-  
-          &:hover {
-            color: #113fbe; 
-          }
+    gap: 20px;
+    font-family: "rellita-display";
+
+    h4 {
+      margin: 0;
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+
+      a {
+        text-decoration: none;
+        color: #5268e4;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #113fbe;
         }
       }
     }
+  }
 
-    // Media Query for Mobile
-    @media (max-width: 715px) {
-        padding: 5px 10px;
+  // Media Query for Mobile
+  @media (max-width: 715px) {
+    padding: 5px 10px;
 
-        &__title {
-            font-size: 2.5rem;
-        }
-
-        &__links {
-            gap: 10px;
-
-            h4 {
-                font-size: 1.2rem;
-            }
-        }
+    &__title {
+      font-size: 2.5rem;
     }
+
+    &__links {
+      gap: 10px;
+
+      h4 {
+        font-size: 1.2rem;
+      }
+    }
+  }
 }
