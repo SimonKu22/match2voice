@@ -48,18 +48,24 @@ const PlayAgain: React.FC<Props> = ({ onRestart, score }) => {
       {scoreSaved ? (
         <p className="play-again__saved-text">Score Saved!</p>
       ) : (
-        <div className="play-again__input-wrapper">
-          <input
-            type="text"
-            className="play-again__input"
-            placeholder="Enter your name"
-            value={name}
-            onChange={handleNameChange}
-          />
-          <button className="play-again__save-button" onClick={saveScore}>
-            Save Score
-          </button>
-        </div>
+        <>
+          {score > 0 ? (
+            <div className="play-again__input-wrapper">
+              <input
+                type="text"
+                className="play-again__input"
+                placeholder="Enter your name"
+                value={name}
+                onChange={handleNameChange}
+              />
+              <button className="play-again__save-button" onClick={saveScore}>
+                Save Score
+              </button>
+            </div>
+          ) : (
+            <p>Your score is too low to be saved!</p>
+          )}
+        </>
       )}
       <button className="play-again__restart-button" onClick={onRestart}>
         Play Again

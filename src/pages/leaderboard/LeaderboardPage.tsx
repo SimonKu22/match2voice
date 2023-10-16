@@ -7,6 +7,7 @@ type LeaderboardEntry = {
   name: string;
   score: number;
   id: string;
+  rank: number;
 };
 
 export const LeaderboardPage: React.FC = () => {
@@ -34,10 +35,10 @@ export const LeaderboardPage: React.FC = () => {
   return (
     <div className="leaderboard-page">
       <div className="entries-list">
-        {entries.map((entry, index) => (
+        {entries.map((entry) => (
           <RankEntry
             key={entry.id}
-            rank={index + 1}
+            rank={entry.rank}
             name={entry.name}
             score={entry.score}
           />
